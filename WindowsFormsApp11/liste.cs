@@ -9,13 +9,37 @@ namespace WindowsFormsApp11
 {
     class liste : IList
     {
-        public object this[int index] { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
+        public object[] _data;
+        public liste()
+        {
+            _data = new object[0];
+        }
+        public object this[int index] {
+            get
+            {
+                if (index >= _data.Length)
+                {
+                    throw new Exception("Target out of range");
+                }
+                return _data[index];
+            }
+            set
+            {
+                if (index >= _data.Length)
+                {
+                    throw new Exception("Target out of range");
+                }
+                _data[index] = value;
+            }
+        }
 
-        public bool IsReadOnly => throw new NotImplementedException();
+        public bool IsReadOnly {
+            get { return _data.IsReadOnly; }
+        }
 
-        public bool IsFixedSize => throw new NotImplementedException();
+        public bool IsFixedSize { get { return _data.IsFixedSize; } }
 
-        public int Count => throw new NotImplementedException();
+        public int Count { get { return _data.Length; } }
 
         public object SyncRoot => throw new NotImplementedException();
 

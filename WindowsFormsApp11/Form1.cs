@@ -19,9 +19,13 @@ namespace WindowsFormsApp11
 
         private void button1_Click(object sender, EventArgs e)
         {
-            dizi d = new dizi();
-            d.Add("asd");
-            MessageBox.Show(d[1].ToString()) ;
+            
+            genericListe<int> g = new genericListe<int>();
+            g.Add(12345);
+            g.Insert(0, 321);
+            g.Add(222);
+            g.RemoveAt(1);
+            MessageBox.Show(g[1].ToString());
         }
     }
 }
